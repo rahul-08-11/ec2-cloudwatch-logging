@@ -23,16 +23,17 @@ app = FastAPI()
 
 @app.get("/greet/{name}")
 async def greet(name: str):
-    logging.info(f"Greeting user: {name}")
+    logger.info(f"Greeting user: {name}")
     return {"message": f"Hello, {name}! This demonstrate Path Parameter."}
 
 @app.get("/greet")
 async def greet_query(name: str):
-    logging.info(f"Greeting user: {name}")
+    logger.info(f"Greeting user: {name}")
     return {"message": f"Hello, {name}! This demonstrate Query Parameter."}
 
 @app.get("/")
 async def read_root():
+    logger.info("Root endpoint accessed")
     return {"message": "Welcome to the FastAPI application!"}
 
 
