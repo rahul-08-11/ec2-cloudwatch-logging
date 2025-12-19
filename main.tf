@@ -96,7 +96,6 @@ resource "aws_security_group" "sg" {
 resource "aws_instance" "app" {
   ami           = "ami-0f918f7e67a3323f0"
   instance_type = "t3.micro"
-  key_name = "newkey"
 
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
   security_groups      = [aws_security_group.sg.name]
