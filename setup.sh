@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/Desktop/AWS/app
+cd ~/app
 echo "$(date '+%Y-%m-%d %H:%M:%S') Starting the FastAPI application..." >> setup.log
 
 
