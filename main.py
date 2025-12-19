@@ -6,7 +6,7 @@ logger = logging.getLogger("fastapi_app")
 logger.setLevel(logging.INFO)
 
 # File handler (saves logs to a file)
-file_handler = logging.FileHandler("/home/ubuntu/AFDF/app.log")
+file_handler = logging.FileHandler("app.log")
 file_handler.setLevel(logging.INFO)
 
 # Log format
