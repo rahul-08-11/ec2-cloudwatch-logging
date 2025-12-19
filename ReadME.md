@@ -14,6 +14,12 @@ Note: Purely meant for Quick reference to understand the concept behind log stre
 
 ---
 
+## Branch
+
+There are two branches:
+- main => Contains Terraform code
+- app => Contains FastAPI code
+
 ## How to Run
 
 ### 1. Configure AWS credentials
