@@ -15,8 +15,7 @@ Note: Purely meant for Quick reference to understand the concept behind log stre
 ---
 
 ## Architecture
-
-![alt text](cloudwatchec2logging.png)
+![cloudwatchec2logging-removebg-preview](https://github.com/user-attachments/assets/fd5bc50f-a5b2-4948-a407-4b6f0c11f387)
 
 ## Branch
 
@@ -110,6 +109,8 @@ They are automatically shipped to **CloudWatch Logs**:
 ```
 Log Group: /ec2/pythonapp
 ```
+<img width="1642" height="239" alt="image" src="https://github.com/user-attachments/assets/01f406b0-c752-4c45-b129-4e151d31ea9f" />
+<img width="1642" height="239" alt="image" src="https://github.com/user-attachments/assets/fdafb6c2-31df-4dbc-9c2f-1b890e1b04e4" />
 
 ---
 
