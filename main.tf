@@ -8,17 +8,6 @@ terraform {
 }
 
 # ----------------------
-# AWS Provider
-# ----------------------
-provider "aws" {
-  region = "us-east-1"
-  access_key = "XXXXXXXXXXXXXXXX"
-  secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
-}
-
-
-# ----------------------
 # IAM role for EC2
 # ----------------------
 resource "aws_iam_role" "ec2_role" {

@@ -14,44 +14,73 @@ Note: Purely meant for Quick reference to understand the concept behind log stre
 
 ---
 
+## Architecture
+
+![alt text](cloudwatchec2logging.png)
+
 ## Branch
 
 There are two branches:
 - main => Contains Terraform code
 - app => Contains FastAPI code
 
-## How to Run
-
-### 1. Configure AWS credentials
-Update the provider block in main.tf:
+## 1. Clone the Repository
 
 ```bash
-access_key = "XXXXXXXXXXXXXXXX"
-secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+git clone -b main https://github.com/rahul-08-11/ec2-cloudwatch-logging.git
 
-````
+cd ec2-cloudwatch-logging
+```
 
----
+## 2. Configure AWS Credentials
 
-### 2. Initialize Terraform
+Before running Terraform, you need to configure your AWS credentials.
+
+#### Step 1: Install AWS CLI (if not already installed)
+
+**For Linux:**
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+**Verify installation:**
+```bash
+aws --version
+```
+
+#### Step 2: Configure AWS Credentials
+
+Run the following command and enter your AWS credentials when prompted:
+```bash
+aws configure
+```
+
+You'll be asked to provide:
+- **AWS Access Key ID**: Your AWS access key
+- **AWS Secret Access Key**: Your AWS secret key  
+- **Default region name**: `us-east-1` (or your preferred region)
+- **Default output format**: `json` (recommended)
+
+This creates a credentials file at `~/.aws/credentials` that Terraform will automatically use.
+
+#### Step 3: Verify Configuration
+
+Test that your credentials are working:
+```bash
+aws sts get-caller-identity
+```
+
+## 3. Run Terraform
 
 ```bash
 terraform init
-```
-
----
-
-### 3. Deploy infrastructure
-
-```bash
 terraform apply
 ```
 
-Type `yes` when prompted.
 
----
-
-### 4. Access the app
+## 4. Access the app
 
 After EC2 is created, open in browser:
 
@@ -61,13 +90,13 @@ http://<EC2_PUBLIC_IP>:8000
 
 Example endpoints:
 
-* `/`
-* `/greet?name=Rahul`
-* `/greet/Rahul`
+* `http://<EC2_PUBLIC_IP>:8000/`
+* `http://<EC2_PUBLIC_IP>:8000/greet?name=myname`
+* `http://<EC2_PUBLIC_IP>:8000/greet/myname`
 
 ---
 
-## Logs
+## 5. Logs
 
 Application logs are written to:
 
@@ -92,12 +121,13 @@ Log Group: /ec2/pythonapp
 
 ---
 
-## Cleanup
-
+## 6. Cleanup
+Make sure to destroy your resources by running the following command:
 ```bash
 terraform destroy
 ```
 
-Make sure to destroy your resources.
+
+
 
 
